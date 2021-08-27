@@ -1,0 +1,111 @@
+{% block content %}
+<html lang="en">
+  <head>
+    <title>Quality Assesment</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    >
+    
+    <style>
+      .alert {
+        background: green;
+        padding: 1rem;
+        border-radius: 5px;
+        color: white;
+        margin: 1rem;
+      }
+    </style>
+    
+  </head>
+  <body>
+  
+    <div class="container">
+      <h3>Quality Form</h3>
+    </div>
+    <div class= "container">
+      <div class= "row">
+        <div class= "col text-lext">
+          <div class= "callout">
+            <h5>Product History:</h5>
+            <p class= "text-primary">QR Code ID: {{qrid}}</p>
+            <p class= "text-primary">Location ID: {{location}}</p>
+            <p class= "text-primary">Batch ID: {{batch}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Form -->
+    <div class="container">
+      <form action="/mansend" method="POST"  enctype="multipart/form-data">
+
+        <label for="parameter1">Quality-Parameter 1</label>
+        <input
+          type="text"
+          placeholder="parameter1"
+          class="u-full-width"
+          name="parameter1"
+        />
+
+        <label for="parameter2">Quality-Parameter 2</label>
+        <input
+          type="text"
+          placeholder="parameter2"
+          class="u-full-width"
+          name="parameter2"
+        />
+
+        <label for="parameter3">Quality-Parameter 3</label>
+        <input
+          type="text"
+          placeholder="parameter3"
+          class="u-full-width"
+          name="parameter3"
+        />
+        <label for="file">Choose file to upload</label>
+        <input type="file" id="file" name="file" multiple>
+
+        <label for="variety">Variety</label>
+        <select class="u-full-width" name="variety">
+          <option value="wheat">Wheat</option>
+          <option value="paddy">Paddy</option>
+          <option value="maize">Maize</option>
+          <option value="soya">Soya</option>
+        </select>
+
+        <label for="quality">Quality Gradey</label>
+        <select class="u-full-width" name="quality">
+          <option value="Good">Good</option>
+          <option value="critical">Critical</option>
+          <option value="risk">Risk</option>
+        </select>
+
+        <input type="submit" value="Submit Quality Grade"/>
+        <input type="reset"  value="RESET" style="color: red;"/>
+        <br />
+        <div class="alert">
+          <p>Quality Grade: {{grade}}</p>
+          <p>Temperature : {{temp}}</p><p>Humidity: {{hum}}</p><p>Co2 Concentration: {{gas}}</p><p>Variety: {{variety}}</p>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+  <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</html>
+{% endblock %}

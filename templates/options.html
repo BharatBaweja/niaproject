@@ -1,0 +1,25 @@
+<!-- Store this code in 'register.html' file inside the 'templates' folder -->
+<link rel="stylesheet" href="static/style.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>NEW<span>USER<b></span></div>
+		</div>
+		<br>
+		<div class="main">
+				<form action="{{ url_for('sign.role') }}" method="post">
+				<h2>First Select your Role</h2>
+				<h3><input type="radio" name="options" id="client" value="client">client</input></h3>
+				<h3><input type="radio" name="options" id="Warehouse" value="Warehouse">warehouse</input></h3></br>
+                <input type="submit" class="btn" value="Next"></br></br>
+		</div>
+		
+		</form>
+		<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+		</div>

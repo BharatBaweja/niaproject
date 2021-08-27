@@ -1,0 +1,35 @@
+<!-- Store this code in 'register.html' file inside the 'templates' folder -->
+<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="static/register.css">
+<link rel="stylesheet" href="alertbox.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>NEW<span>USER<b></span></div>
+		</div>
+		<br>
+		<div class="main">
+				<form action="{{ url_for('sign.client_register') }}" method="post">
+				<input id="CompanyName" name="CompanyName" type="text" placeholder="Enter owner company name" class="textbox" background="transparent"></br></br>
+				<input id="ContactName" name="ContactName" type="text" placeholder="Enter Your name" class="textbox"/></br></br>
+                <input id="ContactNumber" name="ContactNumber" type="text" placeholder="Enter Your number" class="textbox"/></br></br>
+                <input id="Contactemail" name="Contactemail" type="text" placeholder="Enter Your email Address" class="textbox"/></br>
+                <input id="state" name="state" type="text" placeholder="Enter state" class="textbox"/></br></br>
+                <input id="pinCode" name="pinCode" type="text" placeholder="Enter pincode" class="textbox"/></br></br>
+                <input id="city" name="city" type="text" placeholder="Enter city" class="textbox"/></br></br>
+				<input id="password" name="password" type="password" placeholder="Enter password" class="textbox"/></br>                
+                </br>
+				<input type="submit" class="btn" value="Sign Up"></br>
+				<h3><p class="bottom">Already have an account? <a class="bottom" href="{{url_for('sign.login')}}"> Sign in here</a></p></h3>
+
+  				<h1>{{msg}}</h1>
+		</div>
+		</form>
+		<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+		</div>

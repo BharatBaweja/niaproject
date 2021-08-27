@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="static/style.css">
+<head>
+<link href="static/navbar.css" rel="stylesheet">
+<script src="static/qrcodemin.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+ <style>
+  .result{
+    background-color: green;
+    color:#fff;
+    padding:20px;
+  }
+  .row{
+    display:flex;
+  }
+</style> 
+<div class="row">
+  <div class="col">
+    <div style="width:500px;" id="reader"></div>
+  </div>
+  <div class="col" style="padding:30px;">
+    <h4>SCAN RESULT</h4>
+    <div id="result">Result Here</div>
+    <input type="submit" class="btn" name="submit" onclick="submit()"> 
+    <button onclick="goBack()">Go Back</button>
+
+    
+  </div>
+</div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+      <ul>
+<li><a href="{{url_for('sign.login')}}">DashBoard</a></li>
+<li><a href="{{url_for('manualquality.manquality')}}">Manual Quality</a></li>
+<li><a href="{{url_for('grainquality.quality')}}">Check Quality</a></li>
+<li><a href="{{url_for('grainrecognition.upload_file')}}">Find Grain type</a></li>
+<li><a href="https://forms.gle/UHxE2YM5Czq9QMUy5">Feedback</a></li>
+<li><a href="{{url_for('sign.logout')}}">Logout</a></li>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+let qr;
+function onScanSuccess(qrCodeMessage) {
+    document.getElementById('result').innerHTML = '<span class="result">'+qrCodeMessage+'</span>';
+    qr = qrCodeMessage;
+   
+}
+function submit(){
+    $.ajax({
+  type: "POST",
+  url: "/qrscanning",
+  data: JSON.stringify(qr),
+  contentType: "application/json",
+  dataType: 'json',
+  success: function(onScanSuccess) {
+    window.location ="http://127.0.0.1:5000/outString";
+  } 
+});
+}
+
+function onScanError(errorMessage) {
+  //handle scan error
+}
+
+
+function goBack() {
+  window.history.back();
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+$( function() {
+				$( "#result" ).click(function() {
+					var appdir='/qrscanning';
+					var send_msg = "<p>Sending qr string</p>";
+					var received_msg = "<p>Result returned</p>";
+					update_var();
+					console.log(send_msg);
+					$('#message').html(send_msg);
+					$.ajax({
+  						type: "POST",
+  						url: "http://127.0.0.1:5000/qrscanning",
+  						data: JSON.stringify(qrCodeMessage),
+  						dataType: 'json'
+					}).done(function(data) { 
+						console.log(data);
+					});
+				});
+  			});
+
+</script>
+{{msg}}

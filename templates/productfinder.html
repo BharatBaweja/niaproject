@@ -1,0 +1,35 @@
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Finder </title>
+		<link rel="stylesheet" href="static/style.css">
+		<link rel="stylesheet" href="static/navbar.css">			
+		<link rel="stylesheet" href="static/productfinder.css">
+	</head>
+	<body></br></br></br></br></br>
+		<div class="body"></div>
+			<div class="grad">
+				<div class="header">
+				<div><b>PRODUCT<span><br>FINDER<b></span></div>
+				</div>
+			</div></br></br></br>
+			<h2 class="main">
+				<form action="{{ url_for('extract.productfinder') }}" method="post">
+				<div class="msg">{{ msg }}</div>
+					<input id="ProductID" name="ProductID" type="text" placeholder="Enter product ID" class="textbox"/></br></br>
+					<input type="submit" class="btn" value="Search Product"></br></br>
+					<a href="{{ url_for('logout') }}" class="btn">logout</a>
+				</form>
+			</h2>
+		</div>
+		</div>
+	</body>
+	<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</html>

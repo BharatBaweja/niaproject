@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="static/style.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>CREATE<span><br>QRCODE<b></span></div>
+		</div>
+		<br>
+		<div class="main">
+				<form action="{{ url_for('qrcodeFunctions.qrcode_info') }}" method="post">
+					<h3>{{msg}}</h3>
+					<input id="description" name="description" type="text" placeholder="Enter product description" class="textbox"/></br></br>
+					<input id="locationid" name="locationid" type="text" placeholder="Enter product location" class="textbox"/></br></br>
+                    <input id="customerid" name="customerid" type="text" placeholder="Enter customerid" class="textbox"/></br></br>
+                    <input id="batchID" name="batchID" type="text" placeholder="Enter Batch ID" class="textbox"/></br></br>
+					<input type="submit" class="btn" value="Enter next entry"></br></br>
+		</form>
+			<button onclick="location.href = '{{url_for('qrcodeFunctions.qrcodeview')}}';" id="myButton" class="float-left submit-button" >Generate QRcodes</button>
+		</div>
+		<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+		</div>
+		

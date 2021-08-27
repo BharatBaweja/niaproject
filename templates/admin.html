@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="static/style.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>ADMIN<span><br>PANEL<b></span></div>
+		</div>
+		<br>
+		<div class="main">
+				<form action="{{ url_for('sign.admin') }}" method="post">
+					<input id="qrcodeID" name="qrcodeID" type="text" placeholder="Enter qrcode ID" class="textbox"/></br></br>
+					<input type="submit" class="btn" value="Search"></br></br>
+		</div>
+		</form>
+		</div>

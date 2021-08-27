@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="static/style.css">
+<head>
+	<link href="static/navbar.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<div class="main">
+			<h1>Hi {{session.name}}!!Visit Nia Agro to see more of our services</h1></br></br>	
+		</div>
+
+<div class="body"></div>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+    <div class="wrapper">
+      <ul>
+<li><a href="{{url_for('sign.login')}}">DashBoard</a></li>
+<li><a href="{{url_for('qrcodeFunctions.qrcode_info')}}">Create QRcodes</a></li>
+<li><a href="{{url_for('qrcodeFunctions.qrcodeview')}}">Generate QRcodes</a></li>
+<li><a href="https://forms.gle/UHxE2YM5Czq9QMUy5">Feedback</a></li>
+<li><a href="{{url_for('sign.logout')}}">Logout</a></li>
+</ul>
+</div>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+		</div>
+
+
+  

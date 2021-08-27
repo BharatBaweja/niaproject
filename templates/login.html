@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="static/login.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>NIA<span>AGRO</b></span></div>
+		</div>
+		<br>
+		<div class="main">
+				<form action="{{ url_for('sign.login') }}" method="post">
+				<h2>Select your Role</h2>
+				<h3><input type="radio" name="options" id="Client" value="Client">vendor</input></h3>
+				<h3><input type="radio" name="options" id="Warehouse" value="Warehouse">warehouse</input></h3>
+				<h3><input type="radio" name="options" id="admin" value="admin">admin</input></h3><br>
+				<input id="email" name="email" type="text" placeholder="Enter Your email address" class="textbox"/></br></br>
+				<input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+				<input type="submit" class="btn" value="Sign In"></br></br>
+				<h3><p class="bottom">Dont't have an account? <a class="bottom" href="{{url_for('sign.role')}}"> Sign Up here</a></p></h3>
+				<h1>{{msg}}</h1>
+		</div>
+		</form>
+		<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+		</div>

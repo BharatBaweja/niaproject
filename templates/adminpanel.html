@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="static/style.css">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<h1>{{msg}}</h1>
+            <ol>
+<!-- For loop logic of jinja template -->
+{%for i in range(0, len)%}
+  
+    <li><h2>{{details[i]}}</h2></li>
+{%endfor%}
+  
+</ol>
+		</div>
+		<br>
+        </div>
