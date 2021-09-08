@@ -1,6 +1,6 @@
 from flask import render_template, request,session
 from flask import Blueprint
-from database import mysql
+from .database import mysql
 import pyodbc
 import os
 manualquality = Blueprint("manualquality",__name__,static_folder="static", template_folder="templates")
