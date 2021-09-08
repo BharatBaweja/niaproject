@@ -1,15 +1,15 @@
 
 from flask import Flask, redirect, url_for, render_template, request, flash,session
-from PIL import Image
-import cv2
-from database import mysql
+#from PIL import Image
+#import cv2
+from .database import mysql
 from flask import Blueprint
 grainrecognition = Blueprint("grainrecognition",__name__,static_folder="static", template_folder="templates")
 
 
 #Load operation system library
-import os
-os. environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+#import os
+#os. environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 #website libraries
 from flask import render_template
 from flask import Flask, flash, request, redirect, url_for
@@ -19,12 +19,12 @@ from werkzeug.utils import secure_filename
 import numpy as np
 
 #Load machine learning libraries
-from tensorflow.keras.preprocessing import image
-from keras.models import load_model
-from keras.backend import set_session
-import tensorflow as tf
-from gevent.pywsgi import WSGIServer
-import imquality.brisque as brisque
+#from tensorflow.keras.preprocessing import image
+#from keras.models import load_model
+#from keras.backend import set_session
+#import tensorflow as tf
+#from gevent.pywsgi import WSGIServer
+#import imquality.brisque as brisque
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 UPLOAD_FOLDER = 'static/uploads'
@@ -77,12 +77,12 @@ def upload_file():
             return redirect(url_for('grainrecognition.uploaded_file', filename=filename, qrid=QRcodeID, location=location, batch=batch))
 
 def validation(path):
-    img = Image.open(path)
-    score= brisque.score(img)
-    if score<= 40:
-        return 1
-    else:
-        return 0
+    #img = Image.open(path)
+    #score= brisque.score(img)
+    #if score<= 40:
+    #    return 1
+    #else:
+    return 0
 
 @grainrecognition.route('/uploads/<filename>', methods=['POST', 'GET'])
 def uploaded_file(filename):
@@ -96,11 +96,11 @@ def uploaded_file(filename):
     batch= str(batch)
     mysql.commit()
     cursor.close()   
-    img = cv2.imread(UPLOAD_FOLDER+"/"+filename)
-    img = img/255
-    img=cv2.resize(img,(224, 224))
-    img= np.array(img)
-    img = img.reshape(-1,224,224,3)
+    #img = cv2.imread(UPLOAD_FOLDER+"/"+filename)
+    #img = img/255
+    #img=cv2.resize(img,(224, 224))
+    #img= np.array(img)
+    #img = img.reshape(-1,224,224,3)
     pdict = {0:"Wheat",1:"Maize",2:"Paddy",3:"Soya", 4:"NoClass"}
     ###############################prediction#################################
     #prediction = mymodel.predict(img)
