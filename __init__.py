@@ -1,12 +1,12 @@
 #IMPORTING REQUIRED LIBRARIES AND OTHER FILES
 
 from flask import Flask,render_template
-from qrcodeFunctions import qrcodeFunctions
-from sign import sign
-from extract import extract
-from grainrecognitionapp import grainrecognition
-from quality import grainquality
-from manualquality import manualquality
+from .qrcodeFunctions import qrcodeFunctions
+from .sign import sign
+from .extract import extract
+from .grainrecognitionapp import grainrecognition
+from .quality import grainquality
+from .manualquality import manualquality
 #INITIATE A FLASK APP, REGISTER BLUEPRINT IS CALLING THE OTHER PY FILES
 def create_app():
     app = Flask(__name__)
