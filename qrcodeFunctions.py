@@ -6,12 +6,12 @@ import qrcode
 import pandas as pd
 from flask import Blueprint
 from werkzeug.utils import redirect
-from database import mysql
+from .database import mysql
 import datetime
 import os
 import pyodbc
-from sign import user_details
-from sign import uniqueID
+from .sign import user_details
+from .sign import uniqueID
 
 #Blueprint helps to divide the single flask file into various py files 
 #creating blueprint for this file with variable
