@@ -4,7 +4,7 @@ import pandas as pd
 from flask import Blueprint
 import random, string
 import datetime
-from database import mysql
+from .database import mysql
 
 
 sign = Blueprint("sign",__name__,static_folder="static", template_folder="templates")
