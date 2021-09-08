@@ -1,7 +1,7 @@
 #IMPORTING REQUIRED LIBRARIES
 from flask import render_template, request,jsonify
 import pandas as pd
-from database import mysql 
+from .database import mysql 
 from flask import Blueprint 
 
 #Blueprint helps to divide the single flask file into various py files 
